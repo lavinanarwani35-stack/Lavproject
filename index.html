@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Middle East Verified News</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-meta">
+          <span class="date-display" id="current-date"></span>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span id="live-badge" class="live-badge live-badge--on">&#9679; Live</span>
+            <span class="verified-badge">&#10003; Verified Sources Only</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container">
+        <div class="logo-area">
+          <div class="logo-icon">&#9670;</div>
+          <div class="logo-text">
+            <h1>Middle East <span>Verified</span></h1>
+            <p class="tagline">Fact-checked. Sourced. Trusted.</p>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <button class="nav-btn active" data-category="all">All News</button>
+          <button class="nav-btn" data-category="politics">Politics</button>
+          <button class="nav-btn" data-category="conflict">Conflict</button>
+          <button class="nav-btn" data-category="economy">Economy</button>
+          <button class="nav-btn" data-category="humanitarian">Humanitarian</button>
+          <button class="nav-btn" data-category="diplomacy">Diplomacy</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breaking News Ticker -->
+  <div class="breaking-ticker">
+    <div class="container">
+      <span class="breaking-label">LATEST</span>
+      <div class="ticker-wrapper">
+        <div class="ticker-content" id="ticker-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Search & Filter Bar -->
+      <div class="search-filter-bar">
+        <div class="search-box">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" id="search-input" placeholder="Search verified news..." />
+        </div>
+        <div class="filter-controls">
+          <select id="sort-select">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="relevance">Most Relevant</option>
+          </select>
+          <button class="refresh-btn" id="refresh-btn" title="Refresh news">&#8635; Refresh</button>
+        </div>
+      </div>
+
+      <!-- Status banner (shown on API errors / fallback mode) -->
+      <div id="status-banner" class="status-banner"></div>
+
+      <!-- Verification Info Banner -->
+      <div class="verification-banner">
+        <div class="v-icon">&#9673;</div>
+        <div class="v-text">
+          <strong>Our Verification Standard:</strong> All articles are sourced exclusively from established international news agencies (Reuters, AP, BBC, Al Jazeera English, AFP) and cross-referenced before publication. Each story carries a source credibility rating.
+        </div>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="content-layout">
+
+        <!-- Featured Story -->
+        <section class="featured-section" id="featured-section">
+          <div class="section-label">Featured Story</div>
+          <div id="featured-article" class="featured-placeholder">
+            <div class="loading-spinner"></div>
+            <p>Loading featured story...</p>
+          </div>
+        </section>
+
+        <!-- News Grid -->
+        <section class="news-grid-section">
+          <div class="section-label">Latest Verified News</div>
+          <div id="news-grid" class="news-grid">
+            <!-- Articles injected by JS -->
+          </div>
+          <div class="load-more-area">
+            <button id="load-more-btn" class="load-more-btn">Load More Stories</button>
+          </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Source Credibility</div>
+            <div class="source-list" id="source-list"></div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Trending Topics</div>
+            <div class="trending-tags" id="trending-tags"></div>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Fact-Check Corner</div>
+            <div class="factcheck-list" id="factcheck-list"></div>
+          </div>
+
+          <div class="sidebar-card about-card">
+            <div class="sidebar-card-title">About Our Mission</div>
+            <p>We aggregate and summarize only verified, multi-source confirmed news about the Middle East. No opinion, no speculation — just facts with full source attribution.</p>
+            <ul class="mission-list">
+              <li>&#10003; Multi-source verification</li>
+              <li>&#10003; No unverified claims</li>
+              <li>&#10003; Transparent sourcing</li>
+              <li>&#10003; Regular fact-checks</li>
+            </ul>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Article Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="article-modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Middle East Verified</h3>
+          <p>Committed to accurate, fact-checked reporting on one of the world's most complex regions.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Trusted Sources</h4>
+          <ul>
+            <li>Reuters</li>
+            <li>Associated Press (AP)</li>
+            <li>BBC News</li>
+            <li>Al Jazeera English</li>
+            <li>AFP</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Standards</h4>
+          <ul>
+            <li>Two-source minimum</li>
+            <li>Primary source priority</li>
+            <li>Correction policy</li>
+            <li>No anonymous tips</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Disclaimer</h4>
+          <p class="footer-disclaimer">This site aggregates and summarizes news from verified third-party sources. All content is attributed to its original publisher.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Middle East Verified &mdash; All rights reserved. Content sourced from reputable international agencies.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
