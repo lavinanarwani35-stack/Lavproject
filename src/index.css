@@ -38,6 +38,15 @@
   }
 }
 
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+  .glow-indigo {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+  }
+}
+
 @layer components {
   .card {
     @apply bg-surface border border-border rounded-xl p-5;

@@ -83,3 +83,4 @@ export interface PurchaseAnalysis {
 }
 
 export type ActiveView = 'overview' | 'spending' | 'fire' | 'decisions';
+export type AppPage = 'landing' | 'onboarding' | 'app';

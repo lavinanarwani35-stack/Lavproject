@@ -54,8 +54,8 @@ export default function Sidebar({ active, onNavigate, onEditProfile }: SidebarPr
         ))}
       </nav>
 
-      {/* Edit Profile */}
-      <div className="px-3 pb-5">
+      {/* Bottom actions */}
+      <div className="px-3 pb-5 space-y-1">
         <button
           onClick={onEditProfile}
           className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-elevated border border-transparent hover:border-border transition-all group"
