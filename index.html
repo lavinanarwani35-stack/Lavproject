@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verso — Print, Gifting & Exhibition · Dubai</title>
+<meta name="description" content="Verso is a Dubai print, corporate-gifting and exhibition studio with over thirty years in the trade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16140F;
+    --ink-2:#1E1B15;
+    --bone:#EFEADF;
+    --bone-2:#E5DECF;
+    --gold:#BE9D68;
+    --gold-soft:#D8C19A;
+    --muted-d:#A8A091;
+    --muted-l:#716A5C;
+    --line-d:rgba(255,255,255,.13);
+    --line-l:rgba(22,20,15,.15);
+    --max:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);color:var(--bone);
+    font-family:'Schibsted Grotesk',sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  /* grain overlay */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 36px;position:relative}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:'Bodoni Moda',serif}
+  .label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+  .gold{color:var(--gold)}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+  .rv.show{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.28s}.rv.d4{transition-delay:.38s}.rv.d5{transition-delay:.48s}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  /* nav */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s,padding .4s;border-bottom:1px solid transparent}
+  header.solid{background:rgba(22,20,15,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-d)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .mark{font-family:'Bodoni Moda',serif;font-size:1.7rem;letter-spacing:.04em;display:flex;align-items:baseline;gap:.18rem}
+  .mark i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}
+  nav{display:flex;align-items:center;gap:34px}
+  nav .link{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-d);transition:color .25s;font-weight:500}
+  nav .link:hover{color:var(--bone)}
+  .wa{border:1px solid var(--gold);color:var(--gold);padding:11px 20px;border-radius:100px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:all .3s}
+  .wa:hover{background:var(--gold);color:var(--ink)}
+  .menu-btn{display:none;background:none;border:0;color:var(--bone);font-size:1.5rem;cursor:pointer}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 80px}
+  .hero::before{content:"";position:absolute;top:-20%;right:-10%;width:70vw;height:70vw;border-radius:50%;
+    background:radial-gradient(circle,rgba(190,157,104,.16),transparent 60%);pointer-events:none}
+  .hero-watermark{position:absolute;right:-4%;bottom:-14%;font-family:'Bodoni Moda',serif;font-size:42vw;line-height:.7;color:rgba(255,255,255,.022);pointer-events:none;user-select:none}
+  .hero-inner{position:relative;z-index:2;max-width:1000px}
+  h1.hero-h{font-family:'Bodoni Moda',serif;font-weight:500;font-size:clamp(3rem,8.4vw,7rem);line-height:1.0;letter-spacing:-.012em;margin:30px 0 0;max-width:15ch}
+  .hero-sub{margin-top:34px;max-width:46ch;font-size:1.22rem;color:var(--muted-d)}
+  .cta-row{margin-top:44px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .btn-fill{background:var(--gold);color:var(--ink);padding:16px 30px;border-radius:100px;font-weight:600;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,background .3s}
+  .btn-fill:hover{transform:translateY(-2px);background:var(--gold-soft)}
+  .btn-line{padding:16px 4px;font-weight:600;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;position:relative;color:var(--bone)}
+  .btn-line::after{content:"";position:absolute;left:4px;right:24px;bottom:8px;height:1px;background:var(--gold);transform:scaleX(1);transform-origin:left;transition:transform .35s}
+  .btn-line:hover::after{transform:scaleX(.6)}
+  .hero-meta{margin-top:56px;display:flex;align-items:center;gap:14px;color:var(--muted-d)}
+  .hero-meta .tg{width:16px;height:16px;border-radius:50%;border:1px solid var(--gold);position:relative;flex:none}
+  .hero-meta .tg::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--gold)}
+
+  /* marquee divider */
+  .marq{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);overflow:hidden;white-space:nowrap;background:var(--ink-2)}
+  .marq .run{display:inline-block;animation:slide 34s linear infinite;padding:18px 0}
+  .marq .run span{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-d);padding:0 30px}
+  .marq .run span b{color:var(--gold);font-weight:500}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:130px 0}
+  .light{background:var(--bone);color:var(--ink)}
+  .light .label{color:var(--muted-l)}
+  .light .muted{color:var(--muted-l)}
+  .sec-head{margin-bottom:80px;max-width:30ch}
+  .sec-head .label{display:block;margin-bottom:20px}
+  .sec-title{font-family:'Bodoni Moda',serif;font-weight:500;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.04;letter-spacing:-.01em}
+
+  /* services */
+  .svc-item{display:grid;grid-template-columns:120px 1fr 60px;gap:36px;align-items:start;padding:48px 0;border-top:1px solid var(--line-l);transition:padding-left .35s}
+  .svc-item:last-child{border-bottom:1px solid var(--line-l)}
+  .svc-item:hover{padding-left:16px}
+  .svc-item .n{font-family:'Bodoni Moda',serif;font-size:2.4rem;color:var(--gold);line-height:1}
+  .svc-item h3{font-family:'Bodoni Moda',serif;font-weight:500;font-size:2rem;margin-bottom:14px;letter-spacing:-.01em}
+  .svc-item p{color:var(--muted-l);max-width:56ch;font-size:1.06rem}
+  .svc-item .ar{font-size:1.5rem;color:var(--line-l);transition:color .3s,transform .3s;text-align:right}
+  .svc-item:hover .ar{color:var(--gold);transform:translateX(8px)}
+
+  /* studio (dark) pull quote */
+  .studio{position:relative;overflow:hidden}
+  .studio::before{content:"";position:absolute;left:-10%;bottom:-30%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(190,157,104,.12),transparent 60%);pointer-events:none}
+  .pull{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.18;max-width:20ch;letter-spacing:-.01em;position:relative;z-index:2}
+  .pull em{font-style:italic;color:var(--gold)}
+  .studio-sub{margin-top:30px;max-width:48ch;color:var(--muted-d);position:relative;z-index:2}
+  .points{margin-top:72px;display:grid;grid-template-columns:repeat(2,1fr);gap:0 70px;position:relative;z-index:2}
+  .point{display:flex;gap:18px;padding:28px 0;border-top:1px solid var(--line-d)}
+  .point .pn{font-family:'Bodoni Moda',serif;color:var(--gold);font-size:1.1rem;flex:none}
+  .point h4{font-size:1.12rem;margin-bottom:5px;font-weight:600}
+  .point p{color:var(--muted-d);font-size:.98rem}
+
+  /* work / lookbook */
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tile{position:relative;aspect-ratio:3/4;background:var(--bone-2);overflow:hidden;border:1px solid var(--line-l)}
+  .tile .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted-l);
+    transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .tile:hover .ph{transform:scale(1.04)}
+  .tile .ph span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:0 20px;line-height:1.8}
+  .tile .cap{position:absolute;left:0;bottom:0;z-index:2;background:var(--ink);color:var(--bone);padding:8px 14px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase}
+  .work-note{margin-top:28px;color:var(--muted-l);font-size:.9rem}
+
+  /* contact */
+  .contact{position:relative;overflow:hidden}
+  .contact::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:80vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(190,157,104,.14),transparent 60%);pointer-events:none}
+  .contact-inner{position:relative;z-index:2;text-align:center}
+  .contact h2{font-family:'Bodoni Moda',serif;font-weight:500;font-size:clamp(2.6rem,6.4vw,5rem);line-height:1.03;letter-spacing:-.012em;max-width:16ch;margin:24px auto 0}
+  .wa-big{display:inline-block;margin-top:48px;background:var(--gold);color:var(--ink);padding:20px 44px;border-radius:100px;font-weight:600;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,background .3s}
+  .wa-big:hover{transform:translateY(-3px);background:var(--gold-soft)}
+  .details{margin-top:56px;display:flex;justify-content:center;gap:54px;flex-wrap:wrap;color:var(--muted-d)}
+  .details .it .label{display:block;color:var(--gold);margin-bottom:8px}
+  .details .it .v{font-size:1.06rem;color:var(--bone)}
+  .place{margin-top:40px;color:var(--muted-d);font-size:.92rem}
+
+  footer{border-top:1px solid var(--line-d);padding:40px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .mark{font-size:1.3rem}
+  .foot .label{color:var(--muted-d)}
+
+  @media(max-width:880px){
+    .points{grid-template-columns:1fr;gap:0}
+    .work-grid{grid-template-columns:1fr 1fr;gap:14px}
+  }
+  @media(max-width:680px){
+    .wrap{padding:0 22px}
+    nav .link{display:none}
+    .menu-btn{display:block}
+    nav.open{position:fixed;inset:78px 0 auto 0;background:var(--ink);flex-direction:column;align-items:flex-start;gap:0;padding:10px 22px 22px;border-bottom:1px solid var(--line-d)}
+    nav.open .link{display:block;padding:15px 0;width:100%;border-bottom:1px solid var(--line-d);font-size:.9rem}
+    nav.open .wa{margin-top:16px}
+    section{padding:84px 0}
+    .sec-head{margin-bottom:48px}
+    .svc-item{grid-template-columns:1fr;gap:12px}
+    .svc-item .ar{display:none}
+    .details{gap:32px}
+    .hero{min-height:92vh}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap bar">
+    <a href="#top" class="mark">Verso<i></i></a>
+    <nav id="nav">
+      <a class="link" href="#services">Services</a>
+      <a class="link" href="#studio">Studio</a>
+      <a class="link" href="#work">Work</a>
+      <a class="link" href="#contact">Contact</a>
+      <a class="wa" href="https://wa.me/9715XXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">≡</button>
+    </nav>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-watermark serif">V</span>
+  <div class="wrap hero-inner">
+    <p class="label gold rv d1">Print · Gifting · Exhibition — Dubai</p>
+    <h1 class="hero-h rv d2">Print worth putting your name on.</h1>
+    <p class="hero-sub rv d3">Exhibition stands, corporate gifts and everyday print — made in Dubai by a family that's been doing it for over thirty years.</p>
+    <div class="cta-row rv d4">
+      <a class="btn-fill" href="https://wa.me/9715XXXXXXXX" target="_blank" rel="noopener">Get a quote on WhatsApp</a>
+      <a class="btn-line" href="#work">View the work</a>
+    </div>
+    <div class="hero-meta label rv d5"><span class="tg"></span>Based in Dubai · Delivery across the UAE</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq">
+  <div class="run">
+    <span>Exhibition Stands</span><span><b>·</b></span><span>Banners &amp; Signage</span><span><b>·</b></span><span>Corporate Gifting</span><span><b>·</b></span><span>Branded Merchandise</span><span><b>·</b></span><span>Business Cards</span><span><b>·</b></span><span>Letterheads</span><span><b>·</b></span><span>Stationery</span><span><b>·</b></span>
+    <span>Exhibition Stands</span><span><b>·</b></span><span>Banners &amp; Signage</span><span><b>·</b></span><span>Corporate Gifting</span><span><b>·</b></span><span>Branded Merchandise</span><span><b>·</b></span><span>Business Cards</span><span><b>·</b></span><span>Letterheads</span><span><b>·</b></span><span>Stationery</span><span><b>·</b></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="light">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="label">What we make</span>
+      <h2 class="sec-title">Three things, done properly.</h2>
+    </div>
+    <div class="svc-item rv">
+      <div class="n serif">01</div>
+      <div><h3>Exhibition &amp; Large Format</h3><p>Stands, banners, backdrops and signage that hold up under the lights, the foot traffic and the full run of the show. Designed, produced and delivered on Dubai's timelines.</p></div>
+      <div class="ar">→</div>
+    </div>
+    <div class="svc-item rv">
+      <div class="n serif">02</div>
+      <div><h3>Corporate Gifting</h3><p>Branded gifts and merchandise people keep rather than bin. Sourced, printed and packed so they reflect well on the name on the box — yours.</p></div>
+      <div class="ar">→</div>
+    </div>
+    <div class="svc-item rv">
+      <div class="n serif">03</div>
+      <div><h3>Everyday Print</h3><p>Business cards, letterheads, menus, stationery. The quiet, unglamorous work that still has to be right every single time. It is.</p></div>
+      <div class="ar">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO -->
+<section id="studio" class="studio">
+  <div class="wrap">
+    <span class="label gold rv">The studio</span>
+    <p class="pull serif rv d1" style="margin-top:22px">Thirty years of getting it right — <em>through every version of this city.</em></p>
+    <p class="studio-sub rv d2">We've printed for Dubai's businesses, events and families across three decades. The presses changed. The standards didn't.</p>
+    <div class="points">
+      <div class="point rv d1"><span class="pn serif">A</span><div><h4>Corporate accounts &amp; one-off orders</h4><p>Both welcome, both taken seriously — whether it's 5,000 gift boxes or a single set of cards.</p></div></div>
+      <div class="point rv d2"><span class="pn serif">B</span><div><h4>We deliver across the UAE</h4><p>No storefront to visit. We come to you, or it comes to your door.</p></div></div>
+      <div class="point rv d1"><span class="pn serif">C</span><div><h4>You talk to a person</h4><p>Not a portal, not a form that disappears. A real conversation about what you need.</p></div></div>
+      <div class="point rv d2"><span class="pn serif">D</span><div><h4>Proofs before press</h4><p>You see it and sign off before anything runs. No expensive surprises.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="light">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="label">Selected work</span>
+      <h2 class="sec-title">A look at what comes off the press.</h2>
+    </div>
+    <div class="work-grid">
+      <div class="tile rv"><div class="ph"><span>[ Replace with photo ]<br>Exhibition stand</span></div><span class="cap">Exhibition · DWTC</span></div>
+      <div class="tile rv d1"><div class="ph"><span>[ Replace with photo ]<br>Gift box set</span></div><span class="cap">Corporate gifting</span></div>
+      <div class="tile rv d2"><div class="ph"><span>[ Replace with photo ]<br>Business cards</span></div><span class="cap">Print · Stationery</span></div>
+      <div class="tile rv"><div class="ph"><span>[ Replace with photo ]<br>Banner / signage</span></div><span class="cap">Large format</span></div>
+      <div class="tile rv d1"><div class="ph"><span>[ Replace with photo ]<br>Branded merch</span></div><span class="cap">Merchandise</span></div>
+      <div class="tile rv d2"><div class="ph"><span>[ Replace with photo ]<br>Letterheads</span></div><span class="cap">Print · Brand</span></div>
+    </div>
+    <p class="work-note">↳ Swap these six tiles for real photos of finished jobs — the better the photos, the more this section sells.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap contact-inner">
+    <span class="label gold rv">Get in touch</span>
+    <h2 class="rv d1">Tell us what you need printed.</h2>
+    <a class="wa-big rv d2" href="https://wa.me/9715XXXXXXXX" target="_blank" rel="noopener">Message us on WhatsApp</a>
+    <div class="details rv d3">
+      <div class="it"><span class="label">WhatsApp</span><span class="v">+971 5X XXX XXXX</span></div>
+      <div class="it"><span class="label">Email</span><span class="v">hello@verso.ae</span></div>
+      <div class="it"><span class="label">Hours</span><span class="v">Sun–Thu, 9–6</span></div>
+    </div>
+    <p class="place rv d4">Based in Dubai. By appointment and delivery — no walk-in store, we come to you.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="mark">Verso<i></i></a>
+    <span class="label">Print · Gifting · Exhibition — Dubai</span>
+    <span class="label">© <span id="yr"></span> Verso</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  // nav
+  var nav=document.getElementById('nav'),btn=document.getElementById('menuBtn'),hdr=document.getElementById('hdr');
+  btn.addEventListener('click',function(){nav.classList.toggle('open');});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');});});
+  window.addEventListener('scroll',function(){hdr.classList.toggle('solid',window.scrollY>40);});
+  // reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}});
+  },{threshold:.14});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  // hero reveals on load
+  window.addEventListener('load',function(){document.querySelectorAll('.hero .rv').forEach(function(el){el.classList.add('show');});});
+</script>
+</body>
+</html>
